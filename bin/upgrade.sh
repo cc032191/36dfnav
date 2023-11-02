@@ -20,7 +20,7 @@ projectPath="/root/huasenjio-compose"
 # 远程仓库名称
 gitStorageName="huasenjio-compose"
 # 远程仓库地址
-gitStoragePath="https://github.com/huasenjio/huasenjio-compose.git"
+gitStoragePath="https://gitee.com/HuaSenJioJio/huasenjio-compose.git"
 
 # 缓存目录
 tempPath="/root/huasen-temp"
