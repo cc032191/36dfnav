@@ -13,15 +13,9 @@
       </div>
       <div class="tab">
         <ul>
-          <li :class="{ active: activeIndex == 0 }" @click="activeIndex = 0">
-            登录
-          </li>
-          <li :class="{ active: activeIndex == 1 }" @click="activeIndex = 1">
-            注册
-          </li>
-          <li :class="{ active: activeIndex == 2 }" @click="activeIndex = 2">
-            找回
-          </li>
+          <li :class="{ active: activeIndex == 0 }" @click="activeIndex = 0">登录</li>
+          <li :class="{ active: activeIndex == 1 }" @click="activeIndex = 1">注册</li>
+          <li :class="{ active: activeIndex == 2 }" @click="activeIndex = 2">找回</li>
         </ul>
         <div class="content">
           <!-- 登录 -->
@@ -35,9 +29,7 @@
                   <el-input type="password" v-model="submitForm.password" :show-password="true" autocomplete="off" placeholder="数字/字母/下划线"></el-input>
                 </el-form-item>
               </el-form>
-              <div class="btn" @click="login">
-                登 录
-              </div>
+              <div class="btn" @click="login">登 录</div>
             </section>
           </span>
           <!-- 注册 -->
@@ -48,7 +40,7 @@
                   <el-input v-model="submitForm.id" :placeholder="activeIndex == 1 ? '请输入邮箱地址' : '请输入找回账号'"> </el-input>
                 </el-form-item>
                 <el-form-item prop="password">
-                  <el-input type="password" v-model="submitForm.password" :show-password="true" autocomplete="off" placeholder="数字/字母/下划线"></el-input>
+                  <el-input type="password" v-model="submitForm.password" :show-password="true" autocomplete="off" placeholder="请输入新密码"></el-input>
                 </el-form-item>
                 <el-form-item prop="mailCode">
                   <div class="mail-code-group">
@@ -76,7 +68,7 @@ import HsDialog from '@/components/content/dialog/Dialog.vue';
 export default {
   name: 'WrapSign',
   components: { HsDialog },
-  data() {
+  data () {
     return {
       // 提交数据
       submitForm: {
@@ -101,10 +93,10 @@ export default {
   },
   computed: {
     showWrapSign: {
-      get() {
+      get () {
         return this.$store.state.showWrapSign;
       },
-      set(value) {
+      set (value) {
         this.commitAll({
           showWrapSign: value,
         });
@@ -115,14 +107,14 @@ export default {
     ...mapMutations(['commitAll']),
 
     // 关闭登录面板
-    closeSignPanel() {
+    closeSignPanel () {
       this.commitAll({
         showWrapSign: false,
       });
     },
 
     // 发送邮箱验证码
-    sendMailCode() {
+    sendMailCode () {
       this.$refs.registerForm.validateField('id', valid => {
         if (!valid) {
           if (!this.timerSwitch == true) {
@@ -157,7 +149,7 @@ export default {
     },
 
     // 登录处理
-    login() {
+    login () {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           let params = {
@@ -177,7 +169,7 @@ export default {
     },
 
     // 注册 & 找回密码
-    register() {
+    register () {
       this.$refs.registerForm.validate(valid => {
         if (valid) {
           let params = {
@@ -203,7 +195,7 @@ export default {
     },
   },
 
-  destroyed() {
+  destroyed () {
     clearInterval(this.timer); // 防止页面刷新之后定时任务仍在继续
   },
 };

@@ -1,7 +1,7 @@
 {
   "site": {
     "brandName": "大发的小窝",
-    "brandUrl": "huasen-store/img/1712125674419.png",
+    "brandUrl": "huasen-store/icon/logo.png",
     "redirectUrl": "http://43.154.23.96:9998/portal/",
     "guidePageName": "大发的小窝",
     "guidePageUrl": "http://huasenjio.top/",
@@ -25,28 +25,32 @@
     "wallpaper": [
       {
         "headerFontColor": "#FFFFFF",
-        "background": "https://s2.loli.net/2023/03/31/oSz3nJB84dC5ueh.jpg"
+        "background": "huasen-store/img/1712142205793.jpg"
       },
       {
-        "headerFontColor": "#000000",
-        "background": "https://s2.loli.net/2023/03/31/W9n7RoFvhtlpg6U.jpg"
+        "headerFontColor": "#FFFFFF",
+        "background": "huasen-store/img/1712142283790.png"
+      },
+      {
+        "headerFontColor": "#FFFFFF",
+        "background": "huasen-store/img/1712142439734.jpg"
       }
     ],
     "default": {
-      "bg": "https://s2.loli.net/2023/03/31/W9n7RoFvhtlpg6U.jpg",
-      "color": "#000000"
+      "bg": "huasen-store/img/1712142439734.jpg",
+      "color": "#FFFFFF"
     }
   },
   "mail": {
-    "host": "smtp.163.com",
+    "host": "smtp.exmail.qq.com",
     "port": 465,
-    "user": "huasenjio@163.com",
-    "mtp": "HWIDIXVBPESBFBCM"
+    "user": "dafa@36dfapp.cn",
+    "mtp": "GodvLCVo4EQqdFAu"
   },
   "article": {
-    "changelog": "648c79d1cdf0f0076b134525",
-    "about": "648c79d1cdf0f0076b134525",
-    "help": "648c79d1cdf0f0076b134525",
+    "changelog": "",
+    "about": "",
+    "help": "",
     "notice": ""
   }
 }

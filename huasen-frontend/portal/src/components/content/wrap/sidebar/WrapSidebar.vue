@@ -14,9 +14,9 @@
       <li class="shadow">
         <i class="iconfont icon-a-unfoldcross-line" @click="handleNavbar"> </i>
       </li>
-      <li class="shadow">
+      <!-- <li class="shadow">
         <i class="iconfont icon-github" @click="goStorage"> </i>
-      </li>
+      </li> -->
       <li class="shadow">
         <i class="iconfont icon-weixin" @mouseenter="showConnectPannel" @mouseleave="closeConnectPannel"> </i>
       </li>
@@ -35,7 +35,7 @@ import Bus from '@/plugin/event-bus.js';
 import { HOME_SCROLL_TO } from '@/plugin/event-type.js';
 export default {
   name: 'WrapSidebar',
-  data() {
+  data () {
     return {
       showConnect: false,
     };
@@ -46,7 +46,7 @@ export default {
   methods: {
     ...mapMutations(['commitAll']),
 
-    handleNavbar() {
+    handleNavbar () {
       this.commitAll({
         user: {
           config: {
@@ -58,27 +58,27 @@ export default {
     },
 
     // 回到顶部
-    goTop() {
+    goTop () {
       Bus.pubEv(HOME_SCROLL_TO, 0, true);
     },
 
     // 查看使用说明
-    readHelp() {
+    readHelp () {
       let help = this.appConfig.article.help;
       this.TOOL.jumpToRead(this, help);
     },
 
     // 特别提醒：修改仓库地址将视为侵权
     // Special reminder: Modifying the warehouse address will be regarded as infringement
-    goStorage() {
+    goStorage () {
       window.open('https://github.com/huasenjio/huasenjio-compose', '_blank');
     },
 
-    showConnectPannel() {
+    showConnectPannel () {
       this.showConnect = true;
     },
 
-    closeConnectPannel() {
+    closeConnectPannel () {
       this.showConnect = false;
     },
   },

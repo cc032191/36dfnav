@@ -19,7 +19,7 @@ class Mailer {
    * @param {String} mail 邮箱地址
    * @param {Number} code 验证码
    */
-  saveCode(mail, code) {
+  saveCode (mail, code) {
     return new Promise((resolve, reject) => {
       setRedisItem(this.getMailRedisKey(mail), code, this.expire)
         .then(stat => {
@@ -40,14 +40,14 @@ class Mailer {
    * @param {}      code 验证码
    * @returns
    */
-  sendCode(mail, code) {
+  sendCode (mail, code) {
     return new Promise((resolve, reject) => {
       transporter.sendMail(
         {
-          from: `花森提示 <${MAIL.auth.user}>`, // 发送方信息
+          from: `大发提示 <${MAIL.auth.user}>`, // 发送方信息
           to: mail, // 接受者QQ邮箱地址
-          subject: '花森主页：n.huasenjio.top', // 标题
-          text: `邮箱验证码：${code}`, // 文本信息或者html信息
+          subject: '大发的主页：nav.36dfplay.cn', // 标题
+          text: `您的邮箱验证码为：${code}`, // 文本信息或者html信息
         },
         (err, data) => {
           if (!err) {
@@ -71,7 +71,7 @@ class Mailer {
    * 删除邮箱验证码
    * @param {String} mail 邮箱地址
    */
-  removeCodeByMail(mail) {
+  removeCodeByMail (mail) {
     return new Promise((resolve, reject) => {
       delRedisItem(this.getMailRedisKey(mail))
         .then(delCount => {
@@ -87,7 +87,7 @@ class Mailer {
    * 查找验证码，若已存在验证码，则返回验证码，并且延长验证码的生存时间
    * @param {String} mail 邮箱地址
    */
-  findCodeByMail(mail) {
+  findCodeByMail (mail) {
     return new Promise((resolve, reject) => {
       getRedisItem(this.getMailRedisKey(mail), this.expire)
         .then(code => {
@@ -100,7 +100,7 @@ class Mailer {
   }
 
   // 获取邮箱存储于redis里面的key值
-  getMailRedisKey(mail) {
+  getMailRedisKey (mail) {
     return `${POOL_MAIL}_${mail}`;
   }
 }
