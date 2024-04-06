@@ -42,9 +42,7 @@
           <div class="collapse-content">
             <ul class="image">
               <li v-for="(item, index) in displayWallpaperImages" :key="index" :style="{ backgroundImage: `url(${item.background})` }" @click="changeBg(item)">
-                <div class="setting">
-                  立即设置
-                </div>
+                <div class="setting">立即设置</div>
               </li>
             </ul>
           </div>
@@ -74,7 +72,7 @@ export default {
 
   components: { HsDrawer },
 
-  data() {
+  data () {
     return {
       show: false,
       activeName: '1',
@@ -146,18 +144,18 @@ export default {
   },
   computed: {
     ...mapState(['user', 'themeConfig']),
-    displayPure() {
+    displayPure () {
       let pureTemp = this.themeConfig.pure ? this.themeConfig.pure : [];
       let temp = this.pures.concat(pureTemp);
       return [...temp];
     },
-    displayWallpaperImages() {
+    displayWallpaperImages () {
       let wallpaperTemp = this.themeConfig.wallpaper ? this.themeConfig.wallpaper : [];
       let temp = this.wallpaperImages.concat(wallpaperTemp);
       return [...temp];
     },
   },
-  mounted() {
+  mounted () {
     this.bg = this.user.config.bg;
     this.sliderFilter = this.user.config.bgFilter;
     this.sliderLightness = this.user.config.bgLightness;
@@ -165,7 +163,7 @@ export default {
   methods: {
     ...mapMutations(['commitAll']),
 
-    changeFilter(val) {
+    changeFilter (val) {
       this.initCustomStyle({
         user: {
           config: {
@@ -175,7 +173,7 @@ export default {
       });
     },
 
-    changeShadow(val) {
+    changeShadow (val) {
       this.initCustomStyle({
         user: {
           config: {
@@ -186,7 +184,7 @@ export default {
     },
 
     // 上传文件转换成base64进行保存
-    beforeUpload(file) {
+    beforeUpload (file) {
       // 1048576 = 1M
       // 2097152 = 2M
       // 3145728 = 3M
@@ -206,7 +204,7 @@ export default {
       return false; // 终止上传
     },
 
-    changeBg(val, tag) {
+    changeBg (val, tag) {
       this.initCustomStyle({
         user: {
           config: {
@@ -216,7 +214,7 @@ export default {
       });
     },
 
-    initCustomStyle(data) {
+    initCustomStyle (data) {
       this.commitAll(data);
       this.$store.dispatch('snapshoot');
       this.$store.dispatch('initLocalUserInfo');

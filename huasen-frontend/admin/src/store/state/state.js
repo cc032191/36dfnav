@@ -17,12 +17,12 @@ export default {
   showWrapLeft: true,
 
   site: {
-    name: '花森',
-    logoURL: require('@/assets/img/logo/favicon.svg'),
-    redirectURL: 'http://huasenjio.top/',
+    name: '大发',
+    logoURL: require('@/assets/img/logo/touxiang.svg'),
+    redirectURL: 'http://nav.36dfplay.cn/',
     home: {
-      title: '花森小窝',
-      url: 'http://huasenjio.top/',
+      title: '大发的小窝',
+      url: 'http://nav.36dfplay.cn/',
     },
   },
 

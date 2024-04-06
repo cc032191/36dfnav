@@ -1,7 +1,7 @@
 {
   "site": {
-    "brandName": "大发的小窝",
-    "brandUrl": "huasen-store/icon/logo.png",
+    "brandName": "大发",
+    "brandUrl": "huasen-store/img/1712307235653.png",
     "redirectUrl": "http://43.154.23.96:9998/portal/",
     "guidePageName": "大发的小窝",
     "guidePageUrl": "http://43.154.23.96:9998/portal/",
@@ -9,7 +9,7 @@
     "openLabelClassification": true,
     "jwt": "",
     "jwtLiveTime": 604800,
-    "serviceQRCodeUrl": ""
+    "serviceQRCodeUrl": "huasen-store/img/1712342146966.jpg"
   },
   "theme": {
     "pure": [
@@ -25,20 +25,12 @@
     "wallpaper": [
       {
         "headerFontColor": "#FFFFFF",
-        "background": "huasen-store/img/1712142205793.jpg"
-      },
-      {
-        "headerFontColor": "#FFFFFF",
-        "background": "huasen-store/img/1712142283790.png"
-      },
-      {
-        "headerFontColor": "#FFFFFF",
-        "background": "huasen-store/img/1712142439734.jpg"
+        "background": "huasen-store/img/1712369366016.jpeg"
       }
     ],
     "default": {
-      "bg": "huasen-store/img/1712142439734.jpg",
-      "color": "#FFFFFF"
+      "bg": "huasen-store/img/1712301563171.jpg",
+      "color": "#D0104C"
     }
   },
   "mail": {

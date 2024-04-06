@@ -45,7 +45,7 @@ const router = new Router({
 });
 
 // 数组扁平化
-function flatten(arr, parentPath) {
+function flatten (arr, parentPath) {
   let res = [];
   arr.map(item => {
     if (item.children && item.children.length != 0) {
@@ -70,7 +70,7 @@ router.beforeEach((to, form, next) => {
   // 开启进度条
   Nprogress.start();
   // 将路由中的属性赋值到title中
-  document.title = to.meta.title || '花森后台管理系统';
+  document.title = to.meta.title || '大发后台管理系统';
   let userCode = state.manage.code || 0;
 
   // 判断权限

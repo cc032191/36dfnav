@@ -26,7 +26,7 @@ import { mapState } from 'vuex';
 import navs from '@/config/nav.config.js';
 export default {
   name: 'WrapLeft',
-  data() {
+  data () {
     return {
       navs,
     };
@@ -52,7 +52,7 @@ export default {
     justify-content: center;
     align-items: center;
     background-color: var(--gray-100);
-    background-image: url('~@/assets/img/logo/favicon.svg');
+    background-image: url('~@/assets/img/logo/touxiang.png');
     background-position: 18px center;
     background-size: 38px 38px;
     background-repeat: no-repeat;

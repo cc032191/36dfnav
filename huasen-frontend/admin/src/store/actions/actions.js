@@ -10,7 +10,7 @@ import Vue from 'vue';
 const that = Vue.prototype;
 export default {
   // 初始化本地管理员
-  initManage(store, payload) {
+  initManage (store, payload) {
     try {
       let manage = that.STORAGE.getItem(that.CONSTANT.localManage);
       if (manage) {
@@ -31,12 +31,12 @@ export default {
   },
 
   // 初始化项目配置
-  async initAppConfig(store, payload) {
+  async initAppConfig (store, payload) {
     try {
       let res = await that.API.findAppConfig();
       let site = {
-        name: that.LODASH.get(res.data, 'site.brandName') || '花森',
-        logoURL: that.LODASH.get(res.data, 'site.brandUrl') || require('@/assets/img/logo/favicon.svg'),
+        name: that.LODASH.get(res.data, 'site.brandName') || '大发',
+        logoURL: that.LODASH.get(res.data, 'site.brandUrl') || require('@/assets/img/logo/touxiang.svg'),
       };
       store.commit('commitAll', {
         site,
@@ -48,14 +48,14 @@ export default {
   },
 
   // 添加缓存的路由组件
-  addCache({ state, dispatch }, componentName) {
+  addCache ({ state, dispatch }, componentName) {
     const { caches } = state;
     if (!componentName || caches.includes(componentName)) return;
     caches.push(componentName);
   },
 
   // 移除缓存的路由组件
-  removeCache({ state, dispatch }, componentName) {
+  removeCache ({ state, dispatch }, componentName) {
     const { caches } = state;
     const index = caches.indexOf(componentName);
     if (index > -1) {
@@ -64,7 +64,7 @@ export default {
   },
 
   // 移除缓存的路由组件的实例
-  async removeCacheEntry({ dispatch }, componentName) {
+  async removeCacheEntry ({ dispatch }, componentName) {
     const cacheRemoved = await dispatch('removeCache', componentName);
     if (cacheRemoved) {
       await Vue.nextTick();

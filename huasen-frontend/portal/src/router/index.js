@@ -13,7 +13,7 @@ import routes from '@/config/router.config.json';
 // 获得路由原型
 const originalPush = Router.prototype.push;
 // 重写router的push方法，避免压入当前展示路由引起的报错
-Router.prototype.push = function push(location) {
+Router.prototype.push = function push (location) {
   return originalPush.call(this, location).catch(err => err);
 };
 
@@ -51,7 +51,7 @@ const router = new Router({
 });
 
 // 数组扁平化
-function flatten(arr, parentPath) {
+function flatten (arr, parentPath) {
   let res = [];
   arr.map(item => {
     if (item.children && item.children.length != 0) {
@@ -79,7 +79,7 @@ router.beforeEach((to, form, next) => {
   let brandName = state.appConfig.site.name;
   if (loaded && brandName) {
     // 将路由中的属性赋值到title中
-    document.title = to.meta.title ? brandName + '·' + to.meta.title : 'huasen-portal';
+    document.title = to.meta.title ? brandName + '·' + to.meta.title : '大发的小窝';
   }
 
   let userCode = state.user.code;

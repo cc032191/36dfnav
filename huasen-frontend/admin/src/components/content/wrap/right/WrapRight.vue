@@ -39,7 +39,7 @@
           <router-view v-if="isRenderTab"></router-view>
         </keep-alive>
       </div>
-      <div class="footer text">{{ (site.name || '花森').split('').join(' ') }} 后 台 管 理 由 腾 讯 云 强 力 驱 动 · 2021 年 2 月 3 日</div>
+      <div class="footer text">{{ site.name || '大发' }} 祝大家每天都开心！</div>
     </main>
     <RuntimePanel v-if="showRumtime" :visible.sync="showRumtime"></RuntimePanel>
     <SetPanel v-if="showSet" :visible.sync="showSet"></SetPanel>
@@ -58,7 +58,7 @@ export default {
 
   components: { RuntimePanel, SetPanel, JsonToolPanel },
 
-  data() {
+  data () {
     return {
       showRumtime: false,
       showSet: false,
@@ -76,19 +76,19 @@ export default {
   computed: {
     ...mapState(['site', 'showWrapLeft', 'caches']),
 
-    canPre() {
+    canPre () {
       return this.pageNo <= 1 ? false : true;
     },
 
-    canNext() {
+    canNext () {
       return this.tabs.length - this.pageNo * this.pageSize > 0 ? true : false;
     },
 
-    showPaging() {
+    showPaging () {
       return this.tabs.length > this.pageSize ? true : false;
     },
 
-    displayTabs() {
+    displayTabs () {
       let startIndex = (this.pageNo - 1) * this.pageSize;
       let endIndex = this.pageNo * this.pageSize;
       return this.tabs.slice(startIndex, endIndex);
@@ -97,7 +97,7 @@ export default {
 
   watch: {
     '$route.path': {
-      handler() {
+      handler () {
         this.collectCaches();
         this.changeCurrentTab();
       },
@@ -105,7 +105,7 @@ export default {
     },
 
     tabs: {
-      handler() {
+      handler () {
         this.initTabPaging();
       },
       deep: true,
@@ -116,18 +116,18 @@ export default {
   methods: {
     ...mapActions(['addCache', 'removeCache', 'removeCacheEntry']),
 
-    handlePre() {
+    handlePre () {
       if (!this.canPre) return;
       this.pageNo--;
     },
 
-    handleNext() {
+    handleNext () {
       if (!this.canNext) return;
       this.pageNo++;
     },
 
     // 根据容器的大小，计算页长
-    initTabPaging() {
+    initTabPaging () {
       let node = document.getElementById('js-tab-group');
       if (node) {
         let totalWidth = node.getBoundingClientRect().width;
@@ -143,7 +143,7 @@ export default {
     },
 
     // 收集需要缓存的页面
-    collectCaches() {
+    collectCaches () {
       // 收集当前路由相关的缓存
       this.$route.matched.forEach(routeMatch => {
         const componentName = routeMatch.components?.default?.name;
@@ -157,7 +157,7 @@ export default {
     },
 
     // 切换tab
-    changeCurrentTab() {
+    changeCurrentTab () {
       const { path, query, params, hash, matched } = this.$route;
       // 排除默认路由
       if (path === '/') {
@@ -223,13 +223,13 @@ export default {
     },
 
     // 添加标签页
-    clickTab(tab) {
+    clickTab (tab) {
       if (tab.path !== this.$route.path) {
         this.goTab(tab);
       }
     },
 
-    goTab(tab) {
+    goTab (tab) {
       // path方式只能携带query的参数
       // name方式query和params的参数都能携带
       this.$router.push({
@@ -241,7 +241,7 @@ export default {
     },
 
     // 删除标签页
-    removeTab(path) {
+    removeTab (path) {
       if (this.tabs.length === 1) return;
       const index = this.tabs.findIndex(tab => tab.path === path);
       if (index <= -1) return;
@@ -270,7 +270,7 @@ export default {
     },
 
     // 刷新当前tab页面
-    refreshTab(name) {
+    refreshTab (name) {
       this.isRenderTab = false;
       const index = this.caches.indexOf(name);
       if (index > -1) {
@@ -283,13 +283,13 @@ export default {
       });
     },
 
-    hiddenWrapLeft() {
+    hiddenWrapLeft () {
       this.$store.commit('commitAll', {
         showWrapLeft: !this.showWrapLeft,
       });
     },
 
-    exit() {
+    exit () {
       this.$confirm('下线登录账号，清理身份数据，即将安全退出。', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
@@ -301,18 +301,18 @@ export default {
           // 刷新页面
           location.reload();
         })
-        .catch(() => {});
+        .catch(() => { });
     },
 
-    openRumtimePanel() {
+    openRumtimePanel () {
       this.showRumtime = true;
     },
 
-    openSetPanel() {
+    openSetPanel () {
       this.showSet = true;
     },
 
-    openJsonToolPanel() {
+    openJsonToolPanel () {
       this.showJsonEdit = true;
     },
   },

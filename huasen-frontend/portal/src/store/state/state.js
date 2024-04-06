@@ -16,7 +16,7 @@ export default {
     records: [],
     config: {
       // 色值｜图片链接| base64
-      bg: require('@/assets/img/wallpaper/3.jpeg'),
+      bg: require('@/assets/img/wallpaper/4.jpeg'),
       // 顶栏文字颜色
       headerFontColor: '#ffffff',
       // 背景模糊度 0-10
@@ -71,13 +71,13 @@ export default {
       notice: '',
     },
     site: {
-      name: '花森',
-      logoURL: require('@/assets/img/logo/favicon.svg'),
-      redirectURL: 'http://huasenjio.top/',
-      guidePageName: '花森小窝',
-      guidePageUrl: 'http://huasenjio.top/',
+      name: '大发',
+      logoURL: require('@/assets/img/logo/touxiang.svg'),
+      redirectURL: 'http://nav.36dfplay.cn/',
+      guidePageName: '大发的小窝',
+      guidePageUrl: 'http://nav.36dfplay.cn/',
       footerHtml: '',
-      serviceQRCodeUrl: require('@/assets/img/logo/weixin.png'),
+      serviceQRCodeUrl: require('@/assets/img/logo/dfweixin.jpg'),
       openLabelClassification: false,
     },
   },

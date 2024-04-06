@@ -13,12 +13,12 @@
 <script>
 export default {
   name: 'Weather',
-  data() {
+  data () {
     return {
-      showWeather: true,
+      showWeather: false,
     };
   },
-  mounted() {
+  mounted () {
     window.WIDGET = {
       CONFIG: {
         modules: '12034',
@@ -51,7 +51,7 @@ export default {
             this.showWeather = contentRect.width > 200 ? false : true;
           });
           this.chartObserve.observe(dom);
-          this.$once('hook:beforeDestroy', function() {
+          this.$once('hook:beforeDestroy', function () {
             this.chartObserve.unobserve(dom);
           });
         }

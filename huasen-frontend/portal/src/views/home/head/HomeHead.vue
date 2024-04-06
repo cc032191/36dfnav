@@ -51,9 +51,7 @@
             </el-dropdown-item>
           </template>
           <template v-else>
-            <el-dropdown-item :disabled="true">
-              空空如也
-            </el-dropdown-item>
+            <el-dropdown-item :disabled="true"> 空空如也 </el-dropdown-item>
           </template>
         </el-dropdown-menu>
       </el-dropdown>
@@ -88,7 +86,7 @@ export default {
     },
   },
 
-  data() {
+  data () {
     return {
       showMenu: false,
       selectedTake: '常用热门',
@@ -100,13 +98,13 @@ export default {
 
   computed: {
     ...mapState(['user']),
-    showGrossGlass() {
+    showGrossGlass () {
       return this.showMenu && document.body.clientWidth <= 1024 ? true : false;
     },
-    signText() {
+    signText () {
       return this.user.token ? this.user.name : '注册登录';
     },
-    links() {
+    links () {
       let site = this.$store.state.appConfig.site;
       return [
         {
@@ -131,7 +129,7 @@ export default {
     },
   },
 
-  mounted() {
+  mounted () {
     this.querySites();
     this.queryJournals();
     this.initMenu();
@@ -140,7 +138,7 @@ export default {
   methods: {
     ...mapMutations(['commitAll']),
 
-    querySites() {
+    querySites () {
       this.API.findSiteByCode({}, { notify: false }).then(res => {
         this.commitAll({
           sites: res.data,
@@ -149,7 +147,7 @@ export default {
     },
 
     // 请求订阅源
-    queryJournals() {
+    queryJournals () {
       this.API.findJournal(
         {},
         {
@@ -163,7 +161,7 @@ export default {
       });
     },
 
-    handleSelectJournal(_id) {
+    handleSelectJournal (_id) {
       let exist = this.journals.find(item => item._id === _id);
       if (!exist) return;
       this.API.findJournalInformationById({ _id }, { notify: false }).then(res => {
@@ -171,14 +169,14 @@ export default {
       });
     },
 
-    selectJournal(journal) {
+    selectJournal (journal) {
       this.currentJournal = journal;
       this.commitAll({
         categorySites: journal.series,
       });
     },
 
-    handleNavbar() {
+    handleNavbar () {
       this.commitAll({
         user: {
           config: {
@@ -190,7 +188,7 @@ export default {
     },
 
     // 登录用户
-    sign() {
+    sign () {
       if (this.user.token) {
         // 已经登录，打开个人中心面板
         this.commitAll({
@@ -205,12 +203,12 @@ export default {
     },
 
     // 折叠菜单
-    handleMenu() {
+    handleMenu () {
       this.showMenu = !this.showMenu;
     },
 
     // 根据窗口宽度大于1024，则不折叠菜单
-    initMenu() {
+    initMenu () {
       let debounce = this.LODASH.debounce(
         () => {
           if (document.body.clientWidth > 1024) {
@@ -237,7 +235,7 @@ export default {
     },
 
     // 跳转
-    jump(item, index) {
+    jump (item, index) {
       let url = item.url;
       if (index === 0) {
         this.TOOL.openPage(url);
