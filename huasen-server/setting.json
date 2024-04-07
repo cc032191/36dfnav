@@ -2,9 +2,9 @@
   "site": {
     "brandName": "大发",
     "brandUrl": "huasen-store/img/1712307235653.png",
-    "redirectUrl": "https://nav.36dfplay.cn/",
+    "redirectUrl": "http://43.154.23.96:9998/portal/",
     "guidePageName": "大发的小窝",
-    "guidePageUrl": "https://nav.36dfplay.cn/",
+    "guidePageUrl": "http://43.154.23.96:9998/portal/",
     "footerHtml": "",
     "openLabelClassification": true,
     "jwt": "",
