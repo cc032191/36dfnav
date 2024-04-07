@@ -64,7 +64,7 @@
 <script>
 import { mapState, mapMutations } from 'vuex';
 import Clock from '@/components/common/clock/Clock.vue';
-// import Weather from '@/components/common/weather/Weather.vue';
+import Weather from '@/components/common/weather/Weather.vue';
 export default {
   name: 'HomeHead',
 
