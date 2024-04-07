@@ -7,7 +7,7 @@
 node_modules
 /dist
 /huasen-store/default/*
-# /huasen-mongo/volume/*
+/huasen-mongo/volume/*
 /huasen-redis/data/*
 /huasen-nginx/log/*
 /huasen-server/log/*
