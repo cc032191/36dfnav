@@ -15,7 +15,7 @@ export default {
   name: 'Weather',
   data () {
     return {
-      showWeather: true,
+      showWeather: false,
     };
   },
   mounted () {
