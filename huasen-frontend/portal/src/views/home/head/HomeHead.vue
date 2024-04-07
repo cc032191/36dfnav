@@ -34,9 +34,9 @@
       <div class="clock-group">
         <Clock></Clock>
       </div>
-      <!-- <div class="weather-group">
+      <div class="weather-group">
         <Weather></Weather>
-      </div> -->
+      </div>
     </section>
     <section v-if="showMenu" class="take">
       <el-dropdown class="dropdown" trigger="click" @command="handleSelectJournal">
