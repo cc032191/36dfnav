@@ -70,7 +70,7 @@ router.beforeEach((to, form, next) => {
   // 开启进度条
   Nprogress.start();
   // 将路由中的属性赋值到title中
-  document.title = to.meta.title || '大发后台管理系统';
+  document.title = to.meta.title || '大发后台管理';
   let userCode = state.manage.code || 0;
 
   // 判断权限

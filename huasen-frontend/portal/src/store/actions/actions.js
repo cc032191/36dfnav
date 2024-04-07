@@ -11,7 +11,7 @@ const that = Vue.prototype;
 
 export default {
   // 解析本地缓存的用户配置，若不存在，则采用仓库默认设定值
-  initLocalUserInfo(context, payload) {
+  initLocalUserInfo (context, payload) {
     try {
       // 获取本地存储数据
       let user = that.STORAGE.getItem(that.CONSTANT.localUser);
@@ -39,7 +39,7 @@ export default {
   },
 
   // 初始化主题皮肤
-  initLocalStyleInfo(context, payload) {
+  initLocalStyleInfo (context, payload) {
     // 解析状态
     let localStyle = context.state.user.config.theme;
     // 遍历id修改样式
@@ -54,7 +54,7 @@ export default {
   },
 
   // 初始化配置
-  async initAppConfigInfo(context, payload) {
+  async initAppConfigInfo (context, payload) {
     let { callback } = { ...payload };
     let res = await that.API.findAppConfig({}, { notify: false });
     try {
@@ -63,14 +63,14 @@ export default {
           loaded: true,
           article: that.LODASH.get(res.data, 'article'),
           site: {
-            name: that.LODASH.get(res.data, 'site.brandName') || '花森',
-            logoURL: that.LODASH.get(res.data, 'site.brandUrl') || require('@/assets/img/logo/favicon.svg'),
-            redirectURL: that.LODASH.get(res.data, 'site.redirectUrl') || 'http://huasenjio.top/',
-            guidePageName: that.LODASH.get(res.data, 'site.guidePageName') || '花森小窝',
-            guidePageUrl: that.LODASH.get(res.data, 'site.guidePageUrl') || 'http://huasenjio.top/',
+            name: that.LODASH.get(res.data, 'site.brandName') || '大发',
+            logoURL: that.LODASH.get(res.data, 'site.brandUrl') || require('@/assets/img/logo/touxiang.svg'),
+            redirectURL: that.LODASH.get(res.data, 'site.redirectUrl') || 'https://nav.36dfplay.cn/',
+            guidePageName: that.LODASH.get(res.data, 'site.guidePageName') || '大发的小窝',
+            guidePageUrl: that.LODASH.get(res.data, 'site.guidePageUrl') || 'https://nav.36dfplay.cn/',
             footerHtml: that.LODASH.get(res.data, 'site.footerHtml') || '',
             openLabelClassification: that.LODASH.get(res.data, 'site.openLabelClassification') || false,
-            serviceQRCodeUrl: that.LODASH.get(res.data, 'site.serviceQRCodeUrl') || require('@/assets/img/logo/weixin.png'),
+            serviceQRCodeUrl: that.LODASH.get(res.data, 'site.serviceQRCodeUrl') || require('@/assets/img/logo/dfweixin.jpg'),
           },
         },
         themeConfig: that.LODASH.get(res.data, 'theme'),
@@ -115,7 +115,7 @@ export default {
   },
 
   // 保存当前用户快照
-  snapshoot(context, payload) {
+  snapshoot (context, payload) {
     let { user } = context.state;
 
     Object.keys(user.config.theme).map(key => {
