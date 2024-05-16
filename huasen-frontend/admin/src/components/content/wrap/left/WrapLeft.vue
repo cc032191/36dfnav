@@ -59,7 +59,6 @@ export default {
     .title {
       position: relative;
       left: 20px;
-      top: 5px;
       width: 120px;
       font-size: 20px;
     }
